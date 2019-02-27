@@ -284,3 +284,25 @@ int main()
 
 
 ////// 4.	*Написать программу, которая заменяет все символы вопросительного знака «?» в строке, введенной пользователем, на символы «1». - аналогично 3 задаче
+
+
+
+int main()
+{
+	char str1[100];
+
+	cin.getline(str1, 100);
+
+	char *p, *context;
+
+	p = strtok_s(str1, " !.?,", &context);
+
+	while (p != NULL)
+	{
+		cout << p << endl;
+		p = strtok_s(context, " !.?,", &context);
+	}
+
+	system("pause");
+	return 0;
+}
