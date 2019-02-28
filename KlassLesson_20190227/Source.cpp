@@ -1,6 +1,6 @@
 #include<iostream>
 #include<time.h>
-#include<cstring>
+#include<cstring>			// библиотека работы со строками
 
 using namespace std;
 
@@ -285,8 +285,36 @@ int main()
 
 ////// 4.	*Написать программу, которая заменяет все символы вопросительного знака «?» в строке, введенной пользователем, на символы «1». - аналогично 3 задаче
 
+/*
+void cnangeSymbol(char *str)
+{
+
+	while (*str++ != '\0')	// цикл работает пока не будет достигнут конец строки - обозначается символом \0
+	{
+	if (*str == '?')		// как только будет достигнут адрес в строке содержащий символ '?'
+		*str = '1';			// замена найденного символа '?' на символ '1'
+	}
+
+}
+
+int main()
+{
+	char str[100];
+
+	cin.getline(str, 100); // ввод данных пользователем из консольного окна в массив str[100]
+
+	cnangeSymbol(str);
+
+	cout << str << endl;
 
 
+	system("pause");
+	return 0;
+}
+*/
+
+
+/*
 int main()
 {
 	char str1[100];
@@ -295,14 +323,145 @@ int main()
 
 	char *p, *context;
 
-	p = strtok_s(str1, " !.?,", &context);
+	p = strtok_s(str1, " !.?,", &context);   // функция strtok_s разбивает строку на подстроки
 
 	while (p != NULL)
 	{
 		cout << p << endl;
-		p = strtok_s(context, " !.?,", &context);
+		p = strtok_s(context, " !.?,", &context); // разбивает строку на подстроки
 	}
 
 	system("pause");
 	return 0;
 }
+*/
+
+
+/// 9.	**Пользователь вводит строку и слово. Осуществить в этой строке поиск заданного слова.
+
+/*
+int main()
+{
+	char str1[100];
+	char str2[100];
+	cin >> str2;
+
+	cin.ignore();
+	cin.getline(str1, 100);
+
+	char* p;
+	
+
+	p = strstr(str1, str2);		// str1 строка в которой ищем, str2 искомая строка
+
+	if(p)
+	cout << p << endl;  // функция возвращает указатель 
+
+
+	system("pause");
+	return 0;
+}
+*/
+
+/// написание фнкции strstr самостоятельно ///
+
+/*
+char* my_strstr(char* s1, char* s2)
+{
+	char *p1 = s1;
+	char *p2 = s2;
+	int k = 0;
+
+	while (*s1++ != '\0')
+	{
+		p1 = s1;
+		p2 = s2;
+
+		if (*p1 == *p2)
+		{
+			for (int i = 1; i < strlen(s2); i++)   // strlen вытаскивает длину строки
+				if (s1[i] == s2[i]) k++;
+			if (k == (strlen(s2) - 1)) return p1;
+		}
+	}
+
+	return 0;
+}
+
+int main()
+{
+	char str1[100];
+	char str2[100];
+	char* p;
+
+	cin.getline(str1, 100);
+
+	cin >> str2;
+	
+	p = my_strstr(str1, str2);		// str1 строка в которой ищем, str2 искомая строка
+
+	if (p!=0)
+		cout << p << endl;  // функция возвращает указатель 
+
+
+	system("pause");
+	return 0;
+}
+*/
+
+
+/// 13.	*Написать функцию, которая выполняет преобразование целого числа в строку. Проиллюстрировать работу функции примером.
+
+/*
+int main()
+{
+	char str[10] = "125";
+	cout << atoi(str) * 2 << endl;  /// перевод строки в число
+
+	system("pause");
+	return 0;
+}
+*/
+
+
+/*
+int main()
+{
+	int a = 125;
+	char str[10];
+	_itoa_s(a, str, 10);    // перевод числа в строку, 2 - двоичное число, 8 - восмиричное, 10 - десятичное, 16...
+	cout << str << endl;
+	cout << strchr(str, '2') << endl;  // поиск первого вхождения символа symbol в строку string
+
+	system("pause");
+	return 0;
+}
+*/
+
+//// код функции - поиск первого вхождения символа symbol в строку string
+
+/*
+char *my_strchr(char *pstr, char strx)
+{
+	while (*pstr++ != '\0')
+	{
+		if (*pstr == strx)
+			return pstr;
+	
+	}
+	return 0;
+}
+
+int main()
+{
+	char str[50];
+	cin >> str;
+
+	
+	cout << my_strchr(str, 'o') << endl;
+
+	system("pause");
+	return 0;
+}
+*/
+
