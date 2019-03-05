@@ -465,3 +465,132 @@ int main()
 }
 */
 
+//////////////// 05/03/2019 ////////////////////////////////////////
+
+/*
+int myStrCompair(const char *s1, const char *s2) // сравнение двух строк
+{
+	int k1 = strlen(s1);
+	int k2 = strlen(s2);
+	int n = k1 < k2 ? k1 : k2; // определяем самую короткую строку
+
+	for (int i = 0; i <= n; i++)
+	{
+		if (s1[i] > s2[i])
+			return 1;
+		else if (s1[i] < s2[i])
+			return -1;
+	}
+}
+
+int main()
+{
+	char str1[100] = "Hello World!";
+	char str2[] = "Hello";
+
+	cout << myStrCompair(str1, str2) << endl;
+
+	system("pause");
+	
+}
+*/
+
+
+/*
+void myStrCopy(char *str1, const char *str2) // функция копирования строк  ///   const - запрещает изменение str2
+{
+	
+	int i = 0;
+	for (i = 0; *str2; i++, str2++)
+	{
+		str1[i] = *str2;
+	}
+
+	str1[i] = '\0';
+}
+
+void myStrCopyVer1(char *str1, const char *str2) // функция копирования строк  ///   const - запрещает изменение str2 
+{
+
+	char *t_ptr = str1;
+
+	while (*str2 != '\0')
+	{
+		*t_ptr++ = *str2++;
+	}
+
+	*t_ptr = '\0';
+}
+
+
+void myStrCopyVer2(char *str1, const char *str2) // функция копирования строк  ///   const - запрещает изменение str2 
+{
+	for (int i = 0; i < *str2; i++)
+		str1[i] = str2[i];
+}
+
+
+void myStrCat(char *str1, char *str2)
+{
+	int k = strlen(str1);
+	for (int i = 0; i <= strlen(str2); i++)
+		str1[k + i] = str2[i];
+}
+
+
+
+// определить сколько раз встречается заданное слово в предложении
+
+
+void searchWorldCount(char *str, char *search)
+{
+	int k = 0;
+
+	while (str = strstr(str, search))
+	{
+		str = str + strlen(search);
+		k++;
+	}
+
+	cout << k << endl;
+}
+
+
+int main()
+{
+	//char str1[100] = "Hello";
+	//char str2[100] = "World";
+
+	//myStrCopy(str1, str2);
+	//myStrCopyVer1(str1, str2);
+	//myStrCopyVer2(str1, str2);
+	//myStrCat(str1, str2);
+	//cout << str1<<endl;
+
+	char str[100] = "this example for example";
+	char search[100]="example";
+
+	searchWorldCount(str, search);
+
+	system("pause");
+
+}
+*/
+
+//30.	Пользователь вводит с клавиатуры арифметическое выражение.Необходимо вычислить его значение с учетом приоритетов введенных математических операций и скобок.
+//Если в выражении встречаются другие символы, выдать сообщение, что выражение введено не корректно.
+//a)	*выражение содержит операции + , -и числа состоят из одной цифры
+//b)	**выражение содержит операции + , -, *, / и числа могут состоять из нескольких цифр
+//c)	*** выражение содержит операции + , -, *, / , ^ (возведение в степень), скобки «(» «)» и числа могут быть вещественными.
+
+int main()
+{
+	char str1[50] = "2+5-4";
+
+	if (!isdigit(str1[0]) || !isdigit(str1[strlen(str1) - 1]))
+		cout << "Wrong expression" << endl;
+	else
+	{
+
+	}
+}
