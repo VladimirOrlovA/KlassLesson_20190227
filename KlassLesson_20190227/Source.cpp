@@ -583,14 +583,32 @@ int main()
 //b)	**выражение содержит операции + , -, *, / и числа могут состоять из нескольких цифр
 //c)	*** выражение содержит операции + , -, *, / , ^ (возведение в степень), скобки «(» «)» и числа могут быть вещественными.
 
-int main()
+int parser(char *str1)
 {
-	char str1[50] = "2+5-4";
+	int s = 0;
+	int k = 0;
 
 	if (!isdigit(str1[0]) || !isdigit(str1[strlen(str1) - 1]))
 		cout << "Wrong expression" << endl;
 	else
 	{
-
+		for (int i = 0; i < strlen(str1); i++)
+		{
+			if (str1[i] != '+' && str1[i] != '-')
+				s += k * (str1[i] - 48);
+			else if (str1[i] == '+') k = 1;
+			else if (str1[i] == '-') k = -1;
+		}
 	}
+	return s;
+}
+
+int main()
+{
+	char str1[50] = "2+5-4";
+
+	cout << parser(str1) << endl;
+
+	system("pause");
+	
 }
